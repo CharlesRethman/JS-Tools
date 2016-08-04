@@ -3,64 +3,73 @@
  function Stack() {
    var array = [];
 
+   function updateArrayValues(obj) {
+      obj.size = array.length;
+      obj.top = array[array.length - 1];
+      obj.next = array[array.length - 2];
+      obj.bottom = array[0];
+   }
+
    return {
 
       push : function(value) {
-         array.unshift(value);
-         this.size = array.length;
-         this.top = array[0];
-         this.next = array[1];
-         this.previous = array[array.length - 2];
-         this.bottom = array[array.length - 1];
-   //      console.log(array);
+         array.push(value);
+         updateArrayValues(this);
+         return this.size;
       },
 
       pop : function(value) {
-         var top = array.shift();
-         this.size = array.length;
-         this.top = array[0];
-         this.next = array[1];
-         this.previous = array[array.length - 2];
-         this.bottom = array[array.length - 1];
-   //   console.log(array);
+         var top = array.pop();
+         updateArrayValues(this);
          return top;
+      },
+
+      clear : function() {
+         array = [];
+         updateArrayValues(this);
+         return true
       },
 
       size : array.length,
 
-      top : array[0],
+      top : array[array.length - 1],
 
-      next : array[1],
+      next : array[array.length - 2],
 
-      previous : array[array.length - 2],
+      bottom : array[0]
 
-      bottom : array[array.length - 1]
-
-   }
+   };
 
 };
 
 function Queue() {
    var array = [];
+   function updateArrayValues(obj) {
+      obj.size = array.length;
+      obj.first = array[array.length - 1];
+      obj.next = array[array.length - 2];
+      obj.previous = array[1];
+      obj.last = array[0];
+   }
+
    return {
 
       push : function(value) {
          array.unshift(value);
-         this.size = array.length;
-         this.first = array[array.length - 1];
-         this.next = array[array.length - 2];
-         this.previous = array[1];
-         this.last = array[0];
+         updateArrayValues(this);
+         return this.size;
       },
 
       pop : function(value) {
          var next = array.pop();
-         this.size = array.length;
-         this.first = array[array.length - 1];
-         this.next = array[array.length - 2];
-         this.previous = array[1];
-         this.last = array[0];
+         updateArrayValues(this);
          return next
+      },
+
+      clear : function() {
+         array = [];
+         updateArrayValues(this);
+         return true
       },
 
       size : array.length,
@@ -73,7 +82,7 @@ function Queue() {
 
       last : array[0]
 
-   }
+   };
 }
 
 /*function LinkedList() {
@@ -156,3 +165,4 @@ LinkedList.Circular.prototype.remove = function(node) {
 exports.stack = new Stack;
 exports.queue = new Queue;
 exports.linkedList = new LinkedList;
+exports.linkedListCircular = new LinkedList.Circular;
