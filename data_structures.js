@@ -76,16 +76,22 @@ function Queue() {
    }
 }
 
-function LinkedList() {
+/*function LinkedList() {
    var array = [];
    return {
 
-      append : function(data, position) {
-         if (position = '' || isNaN(parseFloat(position)) || !isFinite(position)) then return null
-         if position < 0
-         var obj = { 'data': data, 'position': position }
-         array.push(obj)
-      },
+      append : function(data, node) {
+         var obj = {};
+         if (node <= 1 || array == []) {
+            obj = { data: data, node: 0 };
+         } else if (node > array.length - 1 || node = '' || isNaN(parseFloat(node)) || !isFinite(node)) {
+            obj = { data : data, node : null}
+         } else {
+            obj = { data : data, node : node}
+         }
+         array.push(obj);
+         this.length = array.length
+      }
 
       remove : function() {
 
@@ -93,9 +99,11 @@ function LinkedList() {
 
       length : array.length;
    }
-};
+};*/
 
-/*LinkedList.prototype = {
+
+function LinkedList() {}
+LinkedList.prototype = {
   length: 0,
   first: null,
   last: null
@@ -117,9 +125,34 @@ LinkedList.Circular.prototype.append = function(node) {
     this.last.next = node;
     this.last = node;
   }
-  this.length++;*/
+  this.length++;
+};
+
+LinkedList.Circular.prototype.insertAfter = function(node, newNode) {
+  newNode.prev = node;
+  newNode.next = node.next;
+  node.next.prev = newNode;
+  node.next = newNode;
+  if (newNode.prev == this.last) { this.last = newNode; }
+  this.length++;
+};
+
+LinkedList.Circular.prototype.remove = function(node) {
+  if (this.length > 1) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+    if (node == this.first) { this.first = node.next; }
+    if (node == this.last) { this.last = node.prev; }
+  } else {
+    this.first = null;
+    this.last = null;
+  }
+  node.prev = null;
+  node.next = null;
+  this.length--;
 };
 
 
 exports.stack = new Stack;
 exports.queue = new Queue;
+exports.linkedList = new LinkedList;
