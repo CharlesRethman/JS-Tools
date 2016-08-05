@@ -51,8 +51,9 @@ console.log(foo.size); // 4
 ```
 Removing items is easy, just `pop` them:
 ```javascript
-var retriveTopMost = foo.pop();
+var retrieveTopMost = foo.pop();
 console.log(retrieveTopMost); // [ 1, 2, 3 ]
+console.log(foo.top); // { name : 'Thompson', diff: 'with a P' }
 console.log(foo.size); // 3
 ```
 To clear the stack out completely, use `clear`:
@@ -101,8 +102,9 @@ console.log(bar.size); // 4
 ```
 Removing items is easy, just `pop` them:
 ```javascript
-var retriveFirst = bar.pop();
+var retrieveFirst = bar.pop();
 console.log(retrieveFirst); // 'Thomson'
+console.log(bar.first) // 65536
 console.log(bar.size); // 3
 ```
 To clear the stack out completely, use `clear`:
