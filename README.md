@@ -36,15 +36,18 @@ foo.push('Thomson');
 ```
 The stack will return its new size, ie. 1, if this is the first element. Push another element (this time try a number, then an object and then an array):
 ```javascript
-foo.push(65536); // 2
-foo.push({ name : 'Thompson', diff: 'with a P' }); // 3
-foo.push([1, 2, 3]); // 4
+var item = foo.push(65536);
+console.log(item); // 2
+item = foo.push({ name : 'Thompson', diff: 'with a P' });
+console.log(item); // 3
+item = foo.push([1, 2, 3]);
+console.log(item); // 4
 ```
-You can inspect the stack by looking at its `top`, `next`, `bottom` and `size` properties:
+You can inspect the stack by looking at its `top`, `bottom` and `size` properties:
 ```javascript
-var topMost = foo.top // [ 1, 2, 3 ]
-var bottomOfThePile = foo.bottom // 'Thomson'
-var depthOfStack = foo.size // 4
+console.log(foo.top); // [ 1, 2, 3 ]
+console.log(foo.bottom); // 'Thomson'
+console.log(foo.size); // 4
 ```
 Removing items is easy, just `pop` them:
 ```javascript
@@ -83,15 +86,18 @@ bar.push('Thomson');
 ```
 The queue will return its new size, ie. 1, if this is the first element. Push another element (this time an try a number, then an object and then an array):
 ```javascript
-bar.push(65536); // 2
-bar.push({ name : 'Thompson', diff: 'with a P' }); // 3
-bar.push([1, 2, 3]); // 4
+var item = bar.push(65536);
+console.log(item); // 2
+item = bar.push({ name : 'Thompson', diff: 'with a P' });
+console.log(item); // 3
+item = bar.push([1, 2, 3]);
+console.log(item); // 4
 ```
-You can inspect the stack by looking at its `first`, `next`, `previous`, `last` and `size` properties:
+You can inspect the stack by looking at its `first`, `last` and `size` properties:
 ```javascript
-var firstInLine = bar.first // 'Thomson'
-var stuckAtTheBack = bar.last // [ 1, 2, 3 ]
-var lengthOfQueue = bar.size // 4
+console.log(bar.first); // 'Thomson'
+console.log(bar.last); // [ 1, 2, 3 ]
+console.log(bar.size); // 4
 ```
 Removing items is easy, just `pop` them:
 ```javascript
