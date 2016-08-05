@@ -14,7 +14,7 @@ const ds = require("./data_structure");
 at the top of your module (you can use `var` instead of `const` if you like and you can call the module variable something else, like `data` or `structure` or `data_structure` if you like).
 
 #### The Stack
-A stack is a single-dimension Last-In-First-Out (LIFO) data structure that is used for storing lists of the most recent items, e.g. it can be used for storing the pages navigated on a website (accessed by the `Back` button) or for tracking function calls in some code.
+A stack is a single-dimension Last-In-First-Out (LIFO) data structure that is used for storing and accessing the most recent items of a list, e.g. it can be used for storing the pages navigated on a website (to be accessed, most recent first, by the `Back` button) or for tracking function calls in some code.
 
 To make a stack object, create a `new` object from the Stack prototype object in `data_structures.js`:
 ```javascript
@@ -63,7 +63,7 @@ console.log(foo.size); // 0
 ```
 
 #### Queue
-The queue is similar to the stack except that the accessible objects in it are the first objects to be loaded. Hence, it is a First-In-First-Out structure (FIFO). It is handy for storing things that need to remain in the order in which they came, like transctions or lines of code.
+The queue is a single dimension data structure similar to the stack except that the only accessible item in it is the first item to be loaded. Hence, it is a First-In-First-Out structure (FIFO). It is handy for storing things that need to remain in the order in which they came, like transctions or lines of code.
 
 To make a queue object, create a `new` object from the Queue prototype object in `data_structures.js`:
 ```javascript
