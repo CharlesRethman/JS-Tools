@@ -1,112 +1,112 @@
-'Use Strict'
+//'Use Strict'
 
- function Stack() {
-   var array = [];
+function Stack() {
+   var arr = [];
 
    function updateArrayValues(obj) {
-      obj.size = array.length;
-      obj.top = array[array.length - 1];
-      obj.next = array[array.length - 2];
-      obj.bottom = array[0];
+      obj.size = arr.length;
+      obj.top = arr[arr.length - 1];
+      obj.next = arr[arr.length - 2];
+      obj.bottom = arr[0];
    }
 
    return {
 
       push : function(value) {
-         array.push(value);
+         arr.push(value);
          updateArrayValues(this);
          return this.size;
       },
 
       pop : function(value) {
-         var top = array.pop();
+         var top = arr.pop();
          updateArrayValues(this);
          return top;
       },
 
       clear : function() {
-         array = [];
+         arr = [];
          updateArrayValues(this);
          return true
       },
 
-      size : array.length,
+      size : arr.length,
 
-      top : array[array.length - 1],
+      top : arr[arr.length - 1],
 
-      next : array[array.length - 2],
+      next : arr[arr.length - 2],
 
-      bottom : array[0]
+      bottom : arr[0]
 
    };
 
 };
 
 function Queue() {
-   var array = [];
+   var arr = [];
    function updateArrayValues(obj) {
-      obj.size = array.length;
-      obj.first = array[array.length - 1];
-      obj.next = array[array.length - 2];
-      obj.previous = array[1];
-      obj.last = array[0];
+      obj.size = arr.length;
+      obj.first = arr[arr.length - 1];
+      obj.next = arr[arr.length - 2];
+      obj.previous = arr[1];
+      obj.last = arr[0];
    }
 
    return {
 
       push : function(value) {
-         array.unshift(value);
+         arr.unshift(value);
          updateArrayValues(this);
          return this.size;
       },
 
       pop : function(value) {
-         var next = array.pop();
+         var next = arr.pop();
          updateArrayValues(this);
          return next
       },
 
       clear : function() {
-         array = [];
+         arr = [];
          updateArrayValues(this);
          return true
       },
 
-      size : array.length,
+      size : arr.length,
 
-      first : array[array.length - 1],
+      first : arr[arr.length - 1],
 
-      next : array[array.length - 2],
+      next : arr[arr.length - 2],
 
-      previous : array[1],
+      previous : arr[1],
 
-      last : array[0]
+      last : arr[0]
 
    };
 }
 
 /*function LinkedList() {
-   var array = [];
+   var arr = [];
    return {
 
       append : function(data, node) {
          var obj = {};
-         if (node <= 1 || array == []) {
+         if (node <= 1 || arr == []) {
             obj = { data: data, node: 0 };
-         } else if (node > array.length - 1 || node = '' || isNaN(parseFloat(node)) || !isFinite(node)) {
+         } else if (node > arr.length - 1 || node = '' || isNaN(parseFloat(node)) || !isFinite(node)) {
             obj = { data : data, node : null}
          } else {
             obj = { data : data, node : node}
          }
-         array.push(obj);
-         this.length = array.length
+         arr.push(obj);
+         this.length = arr.length
       }
 
       remove : function() {
 
       },
 
-      length : array.length;
+      length : arr.length;
    }
 };*/
 
