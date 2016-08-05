@@ -1,4 +1,4 @@
-'Use Strict';
+'use strict';
 
 function Stack() {
    var arr = [];
