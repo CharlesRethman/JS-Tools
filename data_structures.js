@@ -1,4 +1,4 @@
-//'Use Strict'
+'Use Strict';
 
 function Stack() {
    var arr = [];
@@ -6,7 +6,7 @@ function Stack() {
    function updateArrayValues(obj) {
       obj.size = arr.length;
       obj.top = arr[arr.length - 1];
-      obj.next = arr[arr.length - 2];
+//      obj.next = arr[arr.length - 2];
       obj.bottom = arr[0];
    }
 
@@ -34,7 +34,7 @@ function Stack() {
 
       top : arr[arr.length - 1],
 
-      next : arr[arr.length - 2],
+//      next : arr[arr.length - 2],
 
       bottom : arr[0]
 
