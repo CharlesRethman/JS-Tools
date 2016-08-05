@@ -16,19 +16,18 @@ at the top of your module (you can use `var` instead of `const` if you like and 
 #### The Stack
 A stack is a single-dimension Last-In-First-Out (LIFO) data structure that is used for storing lists of the most recent items, e.g. it can be used for storing the pages navigated on a website (accessed by the `Back` button) or for tracking function calls in some code.
 
-To access the stack in `data_structures.js`, use dot notation, e.g.
+To assign a stack to a variable, set it as a `new` Stack prototype object in `data_structures.js`, using dot notation, e.g.,
 ```javascript
-var foo = ds.stack;
+var foo = new ds.Stack;
 ```
-if you want to see the stack, type:
+if you want to see your new stack, type:
 ```javascript
-console.log(ds.stack);
+console.log(foo);
 // {  push: [Function],
 //    pop: [Function],
 //    clear: [Function],
 //    size: 0,
 //    top: undefined,
-//    next: undefined,
 //    bottom: undefined }
 ```
 To add an element to the stack:
@@ -44,7 +43,6 @@ foo.push([1, 2, 3]); // 4
 You can inspect the stack by looking at its `top`, `next`, `bottom` and `size` properties:
 ```javascript
 var topMost = foo.top // [ 1, 2, 3 ]
-var nextUp = foo.next // { name : 'Thompson', diff : 'with a P' }
 var bottomOfThePile = foo.bottom // 'Thomson'
 var depthOfStack = foo.size // 4
 ```
@@ -64,21 +62,19 @@ console.log(foo.size); // 0
 #### Queue
 The queue is similar to the stack except that the accessible objects in it are the first objects to be loaded. Hence, it is a First-In-First-Out structure (FIFO). It is handy for storing things that need to remain in the order in which they came, like transctions or lines of code.
 
-To access the queue in `data_structures.js`, use dot notation, e.g.
+To assign a queue to a variable, set it as a `new` Queue prototype object in `data_structures.js`, using dot notation, e.g.,
 ```javascript
-var bar = ds.queue;
+var bar = new ds.Queue;
 ```
-if you want to see the stack, type:
+if you want to see the queue, type:
 ```javascript
-console.log(ds.queue);
+console.log(bar);
 // {  push: [Function],
 //    pop: [Function],
 //    clear: [Function],
 //    size: 0,
-//    top: undefined,
-//    next: undefined,
-//    previous: undefined,
-//    bottom: undefined }
+//    first: undefined,
+//    last: undefined }
 ```
 **Note** the queue has one more property than the stack, `previous`.
 
@@ -94,14 +90,13 @@ bar.push([1, 2, 3]); // 4
 ```
 You can inspect the stack by looking at its `first`, `next`, `previous`, `last` and `size` properties:
 ```javascript
-var topMost = bar.first // 'Thomson'
-var nextUp = bar.next // 65536
-var bottomOfThePile = bar.bottom // [ 1, 2, 3 ]
-var depthOfQueue = bar.size // 4
+var firstInLine = bar.first // 'Thomson'
+var stuckAtTheBack = bar.last // [ 1, 2, 3 ]
+var lengthOfQueue = bar.size // 4
 ```
 Removing items is easy, just `pop` them:
 ```javascript
-var retriveTopMost = bar.pop();
+var retriveFirst = bar.pop();
 console.log(retrieveFirst); // 'Thomson'
 console.log(bar.size); // 3
 ```

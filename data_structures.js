@@ -44,9 +44,9 @@
          },
          // Size property, the number of items in the stack (supplied by the array length).
          size : arr.length,
-
+         // The item at the top of the stack that will be popped off first.
          top : arr[arr.length - 1],
-
+         // The item at the bottom of the stack that will be the last to be popped off.
          bottom : arr[0]
 
       };
@@ -58,8 +58,6 @@ function Queue() {
    function updateArrayValues(obj) {
       obj.size = arr.length;
       obj.first = arr[arr.length - 1];
-      obj.next = arr[arr.length - 2];
-      obj.previous = arr[1];
       obj.last = arr[0];
    }
 
@@ -71,7 +69,7 @@ function Queue() {
          return this.size;
       },
 
-      pop : function(value) {
+      pop : function() {
          var next = arr.pop();
          updateArrayValues(this);
          return next
@@ -86,10 +84,6 @@ function Queue() {
       size : arr.length,
 
       first : arr[arr.length - 1],
-
-      next : arr[arr.length - 2],
-
-      previous : arr[1],
 
       last : arr[0]
 
