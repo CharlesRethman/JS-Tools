@@ -53,42 +53,54 @@
 
    };
 
-function Queue() {
-   var arr = [];
-   function updateArrayValues(obj) {
-      obj.size = arr.length;
-      obj.first = arr[arr.length - 1];
-      obj.last = arr[0];
+   /**
+    * Private Stack prototype constructor function. Creates a private array to hold all the stack
+    * values that is not visible to the outside world, except for the top (array last element) and
+    * bottom (array first element) values.
+    *
+    * @param value {object | array | string | number}. The value to be pushed onto the stack. Can be
+    * any data type (even another stack!).
+    *
+    * @return {object}. Contains the push, pop and clean methods as well as the stack top, bottom
+    * and size values.
+    *
+    */
+   function Queue() {
+      var arr = [];
+      function updateArrayValues(obj) {
+         obj.size = arr.length;
+         obj.first = arr[arr.length - 1];
+         obj.last = arr[0];
+      }
+
+      return {
+
+         push : function(value) {
+            arr.unshift(value);
+            updateArrayValues(this);
+            return this.size;
+         },
+
+         pop : function() {
+            var next = arr.pop();
+            updateArrayValues(this);
+            return next
+         },
+
+         clear : function() {
+            arr = [];
+            updateArrayValues(this);
+            return true
+         },
+
+         size : arr.length,
+
+         first : arr[arr.length - 1],
+
+         last : arr[0]
+
+      };
    }
-
-   return {
-
-      push : function(value) {
-         arr.unshift(value);
-         updateArrayValues(this);
-         return this.size;
-      },
-
-      pop : function() {
-         var next = arr.pop();
-         updateArrayValues(this);
-         return next
-      },
-
-      clear : function() {
-         arr = [];
-         updateArrayValues(this);
-         return true
-      },
-
-      size : arr.length,
-
-      first : arr[arr.length - 1],
-
-      last : arr[0]
-
-   };
-}
 
 /*function LinkedList() {
    var arr = [];

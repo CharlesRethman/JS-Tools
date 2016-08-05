@@ -76,7 +76,6 @@ console.log(bar);
 //    first: undefined,
 //    last: undefined }
 ```
-**Note** the queue has one more property than the stack, `previous`.
 
 To add an element to the queue:
 ```javascript
