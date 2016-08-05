@@ -16,7 +16,7 @@ at the top of your module (you can use `var` instead of `const` if you like and 
 #### The Stack
 A stack is a single-dimension Last-In-First-Out (LIFO) data structure that is used for storing lists of the most recent items, e.g. it can be used for storing the pages navigated on a website (accessed by the `Back` button) or for tracking function calls in some code.
 
-To assign a stack to a variable, set it as a `new` Stack prototype object in `data_structures.js`, using dot notation, e.g.,
+To make a stack object, create a `new` object from the Stack prototype object in `data_structures.js`:
 ```javascript
 var foo = new ds.Stack;
 ```
@@ -65,7 +65,7 @@ console.log(foo.size); // 0
 #### Queue
 The queue is similar to the stack except that the accessible objects in it are the first objects to be loaded. Hence, it is a First-In-First-Out structure (FIFO). It is handy for storing things that need to remain in the order in which they came, like transctions or lines of code.
 
-To assign a queue to a variable, set it as a `new` Queue prototype object in `data_structures.js`, using dot notation, e.g.,
+To make a queue object, create a `new` object from the Queue prototype object in `data_structures.js`:
 ```javascript
 var bar = new ds.Queue;
 ```
