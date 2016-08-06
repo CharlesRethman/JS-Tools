@@ -116,29 +116,72 @@
  * @return
  */
 function LinkedList() {
-   var node = {};
-   var length = 0
+   var firstNode = -1;
+   var arr = [];
 
    function updateArrayValues(obj) {
       obj.length = arr.length;
+      obj.head = { data : (arr.length > 0 ? arr[firstNode].data : null), next : (arr.length > 0 ? arr[firstNode].next : null) };
+   }
+
+   function insert(data, index) {
+      var node = { data : null, next : null };
+      if (index < 0) {
+         // node is new head
+         node.data = data;
+         node.next = firstNode;
+         arr.push(node);
+         firstNode = arr.length - 1;
+      } else if (index < arr.length - 1) {
+         // node is somewhere in the middle of the list
+//         console.log('index is ', index);
+//         console.log(arr[index], { data : 'hello' , next : -1 });
+         node.data = data;
+         node.next = arr[index].next;
+//         console.log(node);
+         arr.push(node)
+//         console.log(arr[index].next);
+         arr[index].next = arr.length - 1;
+//         console.log(arr[index].next);
+      } else {
+         //node is at the end of the list
+         node.data = data;
+         node.next = arr[arr.length - 1].next;
+         arr.push(node);
+         arr[arr.length - 2].next = arr.length -1;
+      }
+   }
+
+   function findData (element, index, array) {
+      return element.data === this.toString();
    }
 
    return {
 
-      append : function(data, nodeAfter) {
-         if (nodeAfter === '') {
-            // node is new tail
-            node.data = data;
-            node.next = null;
-            length++;
-            this.tail.next = node;
+      insertAfterIndex : function(data, afterNode) {
+//         console.log('Test = ' + (afterNode == '' || isNaN(parseFloat(afterNode))));
+         if (afterNode === '' || isNaN(parseFloat(afterNode)) || afterNode < 0) {
+            insert(data, -1)
          } else {
-            node.data = data;
-            node.next = nodeAfter;
-            length++;
+            insert(data, afterNode)
          }
-
          updateArrayValues(this);
+//         console.log(arr, firstNode);
+         return arr.length;
+      },
+
+      insertAfterData : function(data, afterNode) {
+         var node = { data : null, next : null };
+//         console.log(afterNode, arr.findIndex(findData, afterNode));
+         if (arr.findIndex(findData, afterNode) === -1) {
+            // node is new head
+            insert(data, -1);
+         } else {
+            // node is further down
+            insert(data, arr.findIndex(findData, afterNode));
+         }
+         updateArrayValues(this);
+//         console.log(arr, firstNode);
          return arr.length;
       },
 
@@ -152,9 +195,7 @@ function LinkedList() {
 
       length : arr.length,
 
-      head : node,
-
-      tail : node
+      head : { data : (arr.length > 0 ? arr[firstNode].data : null), next : (arr.length > 0 ? arr[firstNode].next : null) }
 
    }
 }

@@ -114,4 +114,4 @@ console.log(foo.size); // 0
 
 ### Linked List
 
-This has not yet been constructed.
+This is still under construction.
