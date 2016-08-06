@@ -1,19 +1,17 @@
 # JS-Tools
 
-## JavaScript Tools and modules for inclusion in any project
+These are JavaScript tools and modules for inclusion in any project. A bunch of useful tools and modules, such as constructors for data structures, etc. for use in any projects
 
-A bunch of useful tools and modules, such as constructors for data structures, etc. for use in any projects
-
-### File `data_structures.js`
+## File `data_structures.js`
 This allows you to creates and use a number of data structures not usually found in JavaScript or Node (check: NPM).
-#### Usage
+### Usage
 It is usually easiest to copy the file `data_structures.js` to your project folder. Then, to include it in a module, type
 ```javascript
 const ds = require("./data_structure");
 ```
 at the top of your module (you can use `var` instead of `const` if you like and you can call the module variable something else, like `data` or `structure` or `data_structure` if you like).
 
-#### The Stack
+### The Stack
 A stack is a single-dimension Last-In-First-Out (LIFO) data structure that allows items to be removed starting with the most recently appended and working back to the beginning (think of a stack of books, only the one on top can easily be taken off the pile). It can be used for storing the pages navigated on a website (to be accessed, most recent first, by the `Back` button) or for tracking function calls in some code.
 
 To make a stack object, create a `new` object from the Stack prototype object in `data_structures.js`:
@@ -63,7 +61,7 @@ console.log(foo.top); // undefined
 console.log(foo.size); // 0
 ```
 
-#### Queue
+### Queue
 The queue is a single dimension data structure similar to the stack except that the removable item starts with first item that was loaded. Hence, it is a First-In-First-Out structure (FIFO) where items shuffle forward (think of a queue of people at a ticket booth). It is handy for storing things that need to remain in the order in which they came, like transction requests or lines of code.
 
 To make a queue object, create a `new` object from the Queue prototype object in `data_structures.js`:
@@ -113,3 +111,7 @@ foo.clear();
 console.log(foo.top); // undefined
 console.log(foo.size); // 0
 ```
+
+### Linked List
+
+This has not yet been constructed.
